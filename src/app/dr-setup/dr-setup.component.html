@@ -1,0 +1,120 @@
+<button mat-raised-button (click)="isEditable = !isEditable">
+    {{!isEditable ? 'Enable edit mode' : 'Disable edit mode'}}
+  </button>
+  <mat-horizontal-stepper linear #stepper>
+    <mat-step [stepControl]="F1FormGroup" [editable]="isEditable">
+      <!-- #enddocregion editable -->
+      <form [formGroup]="F1FormGroup">
+        <!-- #docregion step-label -->
+        <ng-template matStepLabel>General Information</ng-template>
+        <!-- #enddocregion step-label -->
+        <div>
+            <mat-form-field>
+          <mat-label>First Name</mat-label>
+          <input matInput formControlName="firstNameCtrl" placeholder="John"  required  >
+        </mat-form-field>       <mat-form-field>
+          <mat-label>Last Name</mat-label>
+          <input matInput formControlName="lastNameCtrl" placeholder="Doe"  required  >
+        </mat-form-field>       <mat-form-field>
+          <mat-label>Middle Initials</mat-label>
+          <input matInput formControlName="miCtrl" placeholder="P"  >
+        </mat-form-field>       <mat-form-field>
+          <mat-label>Suffix</mat-label>
+          <input matInput formControlName="suffixCtrl" placeholder="Sr./Jr./II"  >
+        </mat-form-field>     </div>
+        <div>
+            <mat-form-field>
+          <mat-label>Other Names Known By</mat-label>
+          <input matInput formControlName="akaCtrl" placeholder="John Doe"  >
+        </mat-form-field>       <mat-form-field>
+          <mat-label>Social Security No.</mat-label>
+          <input matInput formControlName="ssnCtrl" placeholder="999-99-999"  required  >
+        </mat-form-field>       <mat-form-field>
+          <mat-label>Gender</mat-label>
+          <input matInput formControlName="genderCtrl" placeholder="M/F"  required  >
+        </mat-form-field>       <mat-form-field>
+          <mat-label>Date of Birth</mat-label>
+          <input matInput formControlName="dobCtrl" placeholder="03/03/1999"  required  >
+        </mat-form-field>     </div>
+        <div>
+                <button mat-button matStepperNext>Next</button>
+        </div>
+      </form>
+  </mat-step>
+    <mat-step [stepControl]="F2FormGroup" [editable]="isEditable">
+      <!-- #enddocregion editable -->
+      <form [formGroup]="F2FormGroup">
+        <!-- #docregion step-label -->
+        <ng-template matStepLabel>Licences & Prof. Training</ng-template>
+        <!-- #enddocregion step-label -->
+        <div>
+            <mat-form-field>
+          <mat-label>License Issued By State </mat-label>
+          <input matInput formControlName="stateCtrl" placeholder="NY"  required  >
+        </mat-form-field>       <mat-form-field>
+          <mat-label>License Number</mat-label>
+          <input matInput formControlName="numberCtrl" placeholder="AA123456"  required  >
+        </mat-form-field>       <mat-form-field>
+          <mat-label>Active</mat-label>
+          <input matInput formControlName="isActiveCtrl" placeholder="Y/N"  required  >
+        </mat-form-field>     </div>
+        <div>
+            <mat-form-field>
+          <mat-label>Are You a Specialist</mat-label>
+          <input matInput formControlName="isSpecialistCtrl" placeholder="Y/N"  required  >
+        </mat-form-field>       <mat-form-field>
+          <mat-label>If Yes, List Specialty:</mat-label>
+          <input matInput formControlName="specialtyCtrl" placeholder="Orthodontic "  >
+        </mat-form-field>       <mat-form-field>
+          <mat-label>List Sub Specialty</mat-label>
+          <input matInput formControlName="subSpecialtyCtrl" placeholder="Periodontics"  >
+        </mat-form-field>     </div>
+        <div>
+            <mat-form-field>
+          <mat-label>How long In Practice</mat-label>
+          <input matInput formControlName="yearsInPracticeCtrl" placeholder="3 Years"  >
+        </mat-form-field>     </div>
+        <div>
+                <button mat-button matStepperPrevious>Back</button>
+                <button mat-button matStepperNext>Next</button>
+        </div>
+      </form>
+  </mat-step>
+    <mat-step [stepControl]="F3FormGroup" [editable]="isEditable">
+      <!-- #enddocregion editable -->
+      <form [formGroup]="F3FormGroup">
+        <!-- #docregion step-label -->
+        <ng-template matStepLabel>Prof. Education</ng-template>
+        <!-- #enddocregion step-label -->
+        <div>
+            <mat-form-field>
+          <mat-label>Name of School</mat-label>
+          <input matInput formControlName="nameCtrl" placeholder="Harvard University"  required  >
+        </mat-form-field>       <mat-form-field>
+          <mat-label>State</mat-label>
+          <input matInput formControlName="stateCtrl" placeholder="NY"  >
+        </mat-form-field>       <mat-form-field>
+          <mat-label>Country</mat-label>
+          <input matInput formControlName="countryCtrl" placeholder="USA"  required  >
+        </mat-form-field>     </div>
+        <div>
+            <mat-form-field>
+          <mat-label>Degree</mat-label>
+          <input matInput formControlName="degreeCtrl" placeholder="Dental "  required  >
+        </mat-form-field>     </div>
+        <div>
+                <button mat-button matStepperPrevious>Back</button>
+                <button mat-button matStepperNext>Next</button>
+        </div>
+      </form>
+  </mat-step>
+    <mat-step>
+      <ng-template matStepLabel>Done</ng-template>
+      <p>You are now done.</p>
+      <div>
+        <button mat-button matStepperPrevious>Back</button>
+        <button mat-button (click)="stepper.reset()">Reset</button>
+      </div>
+    </mat-step>
+  </mat-horizontal-stepper>
+  
