@@ -11,6 +11,10 @@ import { MatStepperModule } from '@angular/material/stepper';
 import {MatToolbarModule} from '@angular/material/toolbar';
 
 //End Stepper
+
+//for tab
+import {MatTabsModule} from '@angular/material/tabs';
+
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
@@ -34,7 +38,8 @@ import { InsuranceSetupComponent } from './insurance-setup/insurance-setup.compo
     BrowserAnimationsModule,
     MatInputModule,
     MatButtonModule,
-    MatToolbarModule
+    MatToolbarModule,
+    MatTabsModule
   ],
   providers: [],
   bootstrap: [AppComponent]

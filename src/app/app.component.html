@@ -1,15 +1,7 @@
 
-<mat-toolbar>M&S Healthcare Professional Registry</mat-toolbar>
-<nav>
-  <ul>
-    <li><a routerLink="/DrSetup" routerLinkActive="active">Dr. Registry</a></li>
-  </ul>
-  <ul>
-    <li><a routerLink="/ProviderSetup" routerLinkActive="active">Provider Registry</a></li>
-  </ul>
-  <ul>
-    <li><a routerLink="/InsuranceSetup" routerLinkActive="active">Insurance Registry</a></li>
-  </ul>
-</nav>
-
-<router-outlet></router-outlet>
+<mat-toolbar>Mediator Healthcare Professional Registry</mat-toolbar>
+<mat-tab-group mat-align-tabs="start">
+  <mat-tab label="Doctor Registry"><app-dr-setup></app-dr-setup></mat-tab>
+  <mat-tab label="Provider Registry"><app-provider-setup></app-provider-setup></mat-tab>
+  <mat-tab label="Insurance Registry"><app-insurance-setup></app-insurance-setup></mat-tab>
+</mat-tab-group>

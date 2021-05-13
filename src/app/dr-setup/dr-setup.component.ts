@@ -1,15 +1,15 @@
-import { Component, OnInit } from '@angular/core';
-
+import {Component, OnInit} from '@angular/core';
 import {FormBuilder, FormGroup, Validators} from '@angular/forms';
-  
 
+/**
+ * @title M&S Dr. Registry
+ */
 @Component({
   selector: 'app-dr-setup',
   templateUrl: './dr-setup.component.html',
   styleUrls: ['./dr-setup.component.css']
 })
 export class DrSetupComponent implements OnInit {
-  
   F1FormGroup: FormGroup;
   F2FormGroup: FormGroup;
   F3FormGroup: FormGroup;
@@ -46,3 +46,7 @@ export class DrSetupComponent implements OnInit {
   }
 }
 
+
+/**  Copyright 2020 Google LLC. All Rights Reserved.
+    Use of this source code is governed by an MIT-style license that
+    can be found in the LICENSE file at http://angular.io/license */
