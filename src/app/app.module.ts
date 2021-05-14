@@ -14,6 +14,7 @@ import {MatToolbarModule} from '@angular/material/toolbar';
 
 //for tab
 import {MatTabsModule} from '@angular/material/tabs';
+import {MatTableModule} from '@angular/material/table';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
@@ -39,7 +40,8 @@ import { InsuranceSetupComponent } from './insurance-setup/insurance-setup.compo
     MatInputModule,
     MatButtonModule,
     MatToolbarModule,
-    MatTabsModule
+    MatTabsModule,
+    MatTableModule
   ],
   providers: [],
   bootstrap: [AppComponent]

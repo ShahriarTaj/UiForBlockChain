@@ -1,1 +1,115 @@
-<p>insurance-setup works!</p>
+<button mat-raised-button (click)="isEditable = !isEditable">
+    {{!isEditable ? 'Enable edit mode' : 'Disable edit mode'}}
+</button>
+<mat-horizontal-stepper linear #stepper>
+    <mat-step [stepControl]="F11FormGroup" [editable]="isEditable">
+        <!-- #enddocregion editable -->
+        <form [formGroup]="F11FormGroup">
+            <!-- #docregion step-label -->
+            <ng-template matStepLabel>General Information</ng-template>
+            <!-- #enddocregion step-label -->
+            <div>
+                <mat-form-field>
+                    <mat-label>Insurance Name</mat-label>
+                    <input matInput formControlName="firstNameCtrl" placeholder="Aetna">
+                </mat-form-field>
+                <mat-form-field>
+                    <mat-label>Address</mat-label>
+                    <input matInput formControlName="lastNameCtrl" placeholder="230 Main ">
+                </mat-form-field>
+                <mat-form-field>
+                    <mat-label>Tax ID</mat-label>
+                    <input matInput formControlName="miCtrl" placeholder="P">
+                </mat-form-field>
+                <mat-form-field>
+                    <mat-label>Suffix</mat-label>
+                    <input matInput formControlName="suffixCtrl" placeholder="Sr./Jr./II">
+                </mat-form-field>
+            </div>
+            <div>
+                <button mat-button matStepperNext>Next</button>
+            </div>
+        </form>
+    </mat-step>
+    <mat-step [stepControl]="F21FormGroup" [editable]="isEditable">
+        <!-- #enddocregion editable -->
+        <form [formGroup]="F21FormGroup">
+            <!-- #docregion step-label -->
+            <ng-template matStepLabel>Fee Structure</ng-template>
+            <!-- #enddocregion step-label -->
+            <table mat-table [dataSource]="dataSource" class="mat-elevation-z8">
+
+                <!--- Note that these columns can be defined in any order.
+                      The actual rendered columns are set as a property on the row definition" -->
+
+                <!-- Position Column -->
+                <ng-container matColumnDef="code">
+                    <th mat-header-cell *matHeaderCellDef> Code </th>
+                    <td mat-cell *matCellDef="let element"> {{element.code}} </td>
+                </ng-container>
+
+                <!-- Name Column -->
+                <ng-container matColumnDef="description">
+                    <th mat-header-cell *matHeaderCellDef> Description </th>
+                    <td mat-cell *matCellDef="let element"> {{element.description}} </td>
+                </ng-container>
+
+                <!-- Weight Column -->
+                <ng-container matColumnDef="fee">
+                    <th mat-header-cell *matHeaderCellDef> Fee </th>
+                    <td mat-cell *matCellDef="let element"> {{element.fee}} </td>
+                </ng-container>
+
+                <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+                <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+            </table>
+
+            <div>
+                <button mat-button matStepperPrevious>Back</button>
+                <button mat-button matStepperNext>Next</button>
+            </div>
+
+
+        </form>
+    </mat-step>
+    <mat-step [stepControl]="F31FormGroup" [editable]="isEditable">
+        <!-- #enddocregion editable -->
+        <form [formGroup]="F31FormGroup">
+            <!-- #docregion step-label -->
+            <ng-template matStepLabel>Prof. Education</ng-template>
+            <!-- #enddocregion step-label -->
+            <div>
+                <mat-form-field>
+                    <mat-label>Name of School</mat-label>
+                    <input matInput formControlName="nameCtrl" placeholder="Harvard University" required>
+                </mat-form-field>
+                <mat-form-field>
+                    <mat-label>State</mat-label>
+                    <input matInput formControlName="stateCtrl" placeholder="NY">
+                </mat-form-field>
+                <mat-form-field>
+                    <mat-label>Country</mat-label>
+                    <input matInput formControlName="countryCtrl" placeholder="USA" required>
+                </mat-form-field>
+            </div>
+            <div>
+                <mat-form-field>
+                    <mat-label>Degree</mat-label>
+                    <input matInput formControlName="degreeCtrl" placeholder="Dental " required>
+                </mat-form-field>
+            </div>
+            <div>
+                <button mat-button matStepperPrevious>Back</button>
+                <button mat-button matStepperNext>Next</button>
+            </div>
+        </form>
+    </mat-step>
+    <mat-step>
+        <ng-template matStepLabel>Done</ng-template>
+        <p>You are now done.</p>
+        <div>
+            <button mat-button matStepperPrevious>Back</button>
+            <button mat-button (click)="stepper.reset()">Reset</button>
+        </div>
+    </mat-step>
+</mat-horizontal-stepper>
