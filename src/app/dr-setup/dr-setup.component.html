@@ -2,9 +2,9 @@
   {{!isEditable ? 'Enable edit mode' : 'Disable edit mode'}}
 </button>
 <mat-horizontal-stepper linear #stepper>
-  <mat-step [stepControl]="F1FormGroup" [editable]="isEditable">
+  <mat-step [stepControl]="DrRegistryForm" [editable]="isEditable">
     <!-- #enddocregion editable -->
-    <form [formGroup]="F1FormGroup">
+    <form [formGroup]="DrRegistryForm">
       <!-- #docregion step-label -->
       <ng-template matStepLabel>General Information</ng-template>
       <!-- #enddocregion step-label -->
@@ -41,9 +41,9 @@
       </div>
     </form>
 </mat-step>
-  <mat-step [stepControl]="F2FormGroup" [editable]="isEditable">
+  <mat-step [stepControl]="ProviderRegistryForm" [editable]="isEditable">
     <!-- #enddocregion editable -->
-    <form [formGroup]="F2FormGroup">
+    <form [formGroup]="ProviderRegistryForm">
       <!-- #docregion step-label -->
       <ng-template matStepLabel>Licences & Prof. Training</ng-template>
       <!-- #enddocregion step-label -->
@@ -80,9 +80,9 @@
       </div>
     </form>
 </mat-step>
-  <mat-step [stepControl]="F3FormGroup" [editable]="isEditable">
+  <mat-step [stepControl]="InsuranceRegistryForm" [editable]="isEditable">
     <!-- #enddocregion editable -->
-    <form [formGroup]="F3FormGroup">
+    <form [formGroup]="InsuranceRegistryForm">
       <!-- #docregion step-label -->
       <ng-template matStepLabel>Prof. Education</ng-template>
       <!-- #enddocregion step-label -->

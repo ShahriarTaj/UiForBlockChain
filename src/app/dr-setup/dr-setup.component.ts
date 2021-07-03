@@ -1,5 +1,6 @@
 import {Component, OnInit} from '@angular/core';
 import {FormBuilder, FormGroup, Validators} from '@angular/forms';
+import { RestService } from '../services/rest.service';
 
 /**
  * @title M&S Dr. Registry
@@ -10,15 +11,16 @@ import {FormBuilder, FormGroup, Validators} from '@angular/forms';
   styleUrls: ['./dr-setup.component.css']
 })
 export class DrSetupComponent implements OnInit {
-  F1FormGroup: FormGroup;
-  F2FormGroup: FormGroup;
-  F3FormGroup: FormGroup;
+  DrRegistryForm: FormGroup;
+  ProviderRegistryForm: FormGroup;
+  InsuranceRegistryForm: FormGroup;
   isEditable = false;
+  
 
-  constructor(private _formBuilder: FormBuilder) {}
+  constructor(private _formBuilder: FormBuilder, private _restService : RestService) {}
 
   ngOnInit() {
-    this.F1FormGroup = this._formBuilder.group({
+    this.DrRegistryForm = this._formBuilder.group({
                                     firstNameCtrl: ['',Validators.required ]
                      ,             lastNameCtrl: ['',Validators.required ]
                      ,             miCtrl: ['']
@@ -28,7 +30,7 @@ export class DrSetupComponent implements OnInit {
                      ,             genderCtrl: ['',Validators.required ]
                      ,             dobCtrl: ['',Validators.required ]
                 });
-    this.F2FormGroup = this._formBuilder.group({
+    this.ProviderRegistryForm = this._formBuilder.group({
                                     stateCtrl: ['',Validators.required ]
                      ,             numberCtrl: ['',Validators.required ]
                      ,             isActiveCtrl: ['',Validators.required ]
@@ -37,12 +39,15 @@ export class DrSetupComponent implements OnInit {
                      ,             subSpecialtyCtrl: ['']
                                  ,             yearsInPracticeCtrl: ['']
                 });
-    this.F3FormGroup = this._formBuilder.group({
+    this.InsuranceRegistryForm = this._formBuilder.group({
                                     nameCtrl: ['',Validators.required ]
                      ,             stateCtrl: ['']
                      ,             countryCtrl: ['',Validators.required ]
                                  ,             degreeCtrl: ['',Validators.required ]
                 });
+    this._restService.sayHello().subscribe ( (r) => {
+      console.log ( 'this is ' + r.msg)
+    });            
   }
 }
 

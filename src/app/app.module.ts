@@ -1,5 +1,6 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
+import { HttpClientModule } from '@angular/common/http'
 
 //For stepper
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
@@ -44,6 +45,7 @@ import { InsuranceSetupComponent } from './insurance-setup/insurance-setup.compo
     MatToolbarModule,
     MatTabsModule,
     MatTableModule,
+    HttpClientModule,
     AgGridModule.withComponents([])
   ],
   providers: [],
