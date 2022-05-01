@@ -1,120 +1,86 @@
-<button mat-raised-button (click)="isEditable = !isEditable">
-  {{!isEditable ? 'Enable edit mode' : 'Disable edit mode'}}
-</button>
+
 <mat-horizontal-stepper linear #stepper>
-  <mat-step [stepControl]="DrRegistryForm" [editable]="isEditable">
+  <mat-step [stepControl]="formGroup1" >
     <!-- #enddocregion editable -->
-    <form [formGroup]="DrRegistryForm">
+    <form [formGroup]="formGroup1" >
       <!-- #docregion step-label -->
       <ng-template matStepLabel>General Information</ng-template>
       <!-- #enddocregion step-label -->
       <div>
-          <mat-form-field>
-        <mat-label>First Name</mat-label>
-        <input matInput formControlName="firstNameCtrl" placeholder="John"  required  >
-      </mat-form-field>       <mat-form-field>
-        <mat-label>Last Name</mat-label>
-        <input matInput formControlName="lastNameCtrl" placeholder="Doe"  required  >
-      </mat-form-field>       <mat-form-field>
-        <mat-label>Middle Initials</mat-label>
-        <input matInput formControlName="miCtrl" placeholder="P"  >
-      </mat-form-field>       <mat-form-field>
-        <mat-label>Suffix</mat-label>
-        <input matInput formControlName="suffixCtrl" placeholder="Sr./Jr./II"  >
-      </mat-form-field>     </div>
-      <div>
-          <mat-form-field>
-        <mat-label>Other Names Known By</mat-label>
-        <input matInput formControlName="akaCtrl" placeholder="John Doe"  >
-      </mat-form-field>       <mat-form-field>
-        <mat-label>Social Security No.</mat-label>
-        <input matInput formControlName="ssnCtrl" placeholder="999-99-999"  required  >
-      </mat-form-field>       <mat-form-field>
-        <mat-label>Gender</mat-label>
-        <input matInput formControlName="genderCtrl" placeholder="M/F"  required  >
-      </mat-form-field>       <mat-form-field>
-        <mat-label>Date of Birth</mat-label>
-        <input matInput formControlName="dobCtrl" placeholder="03/03/1999"  required  >
-      </mat-form-field>     </div>
-      <div>
-              <button mat-button matStepperNext>Next</button>
+        <mat-form-field [style.width.px]=400>
+          <mat-label>Your public address</mat-label>
+          <input matInput formControlName="insuredAddressCtrl" placeholder="0x0000"  required>
+        </mat-form-field>
+        <mat-form-field>
+          <mat-label>Your Tenki Password</mat-label>
+          <input matInput type="password" formControlName="passwordCtrl" placeholder="mypassword" required >
+        </mat-form-field>
+        </div>
+        <div>
+        <mat-form-field>
+          <mat-label>Contract Start Date</mat-label>
+          <input matInput formControlName="startDateCtrl"  placeholder="MM/DD/YYYY" required >
+        </mat-form-field>
+        <mat-form-field>
+          <mat-label>Contract End Date</mat-label>
+          <input matInput formControlName="endDateCtrl" placeholder="MM/DD/YYYY" required>
+        </mat-form-field>
+
+
       </div>
-    </form>
-</mat-step>
-  <mat-step [stepControl]="ProviderRegistryForm" [editable]="isEditable">
-    <!-- #enddocregion editable -->
-    <form [formGroup]="ProviderRegistryForm">
-      <!-- #docregion step-label -->
-      <ng-template matStepLabel>Licences & Prof. Training</ng-template>
-      <!-- #enddocregion step-label -->
       <div>
-          <mat-form-field>
-        <mat-label>License Issued By State </mat-label>
-        <input matInput formControlName="stateCtrl" placeholder="NY"  required  >
-      </mat-form-field>       <mat-form-field>
-        <mat-label>License Number</mat-label>
-        <input matInput formControlName="numberCtrl" placeholder="AA123456"  required  >
-      </mat-form-field>       <mat-form-field>
-        <mat-label>Active</mat-label>
-        <input matInput formControlName="isActiveCtrl" placeholder="Y/N"  required  >
-      </mat-form-field>     </div>
-      <div>
-          <mat-form-field>
-        <mat-label>Are You a Specialist</mat-label>
-        <input matInput formControlName="isSpecialistCtrl" placeholder="Y/N"  required  >
-      </mat-form-field>       <mat-form-field>
-        <mat-label>If Yes, List Specialty:</mat-label>
-        <input matInput formControlName="specialtyCtrl" placeholder="Orthodontic "  >
-      </mat-form-field>       <mat-form-field>
-        <mat-label>List Sub Specialty</mat-label>
-        <input matInput formControlName="subSpecialtyCtrl" placeholder="Periodontics"  >
-      </mat-form-field>     </div>
-      <div>
-          <mat-form-field>
-        <mat-label>How long In Practice</mat-label>
-        <input matInput formControlName="yearsInPracticeCtrl" placeholder="3 Years"  >
-      </mat-form-field>     </div>
-      <div>
-              <button mat-button matStepperPrevious>Back</button>
-              <button mat-button matStepperNext>Next</button>
+        <mat-form-field>
+          <mat-label>Premium(Ether)</mat-label>
+          <input matInput formControlName="premiumCtrl" placeholder="10" required>
+        </mat-form-field>
+        <mat-form-field>
+          <mat-label>Indemnity (Ethers)</mat-label>
+          <input matInput formControlName="indemnityCtrl" placeholder="110" required>
+        </mat-form-field>
+        <mat-form-field>
+          <mat-label>Minimum coverage(Ether)</mat-label>
+          <input matInput formControlName="minimuCtrl" placeholder="80" required> 
+        </mat-form-field>
       </div>
-    </form>
-</mat-step>
-  <mat-step [stepControl]="InsuranceRegistryForm" [editable]="isEditable">
-    <!-- #enddocregion editable -->
-    <form [formGroup]="InsuranceRegistryForm">
-      <!-- #docregion step-label -->
-      <ng-template matStepLabel>Prof. Education</ng-template>
-      <!-- #enddocregion step-label -->
       <div>
-          <mat-form-field>
-        <mat-label>Name of School</mat-label>
-        <input matInput formControlName="nameCtrl" placeholder="Harvard University"  required  >
-      </mat-form-field>       <mat-form-field>
-        <mat-label>State</mat-label>
-        <input matInput formControlName="stateCtrl" placeholder="NY"  >
-      </mat-form-field>       <mat-form-field>
-        <mat-label>Country</mat-label>
-        <input matInput formControlName="countryCtrl" placeholder="USA"  required  >
-      </mat-form-field>     </div>
-      <div>
-          <mat-form-field>
-        <mat-label>Degree</mat-label>
-        <input matInput formControlName="degreeCtrl" placeholder="Dental "  required  >
-      </mat-form-field>     </div>
-      <div>
-              <button mat-button matStepperPrevious>Back</button>
-              <button mat-button matStepperNext>Next</button>
+        <mat-form-field>
+          <mat-label>Region</mat-label>
+          <input matInput formControlName="regionCtrl" placeholder="NE" required>
+        </mat-form-field>
+        <mat-form-field>
+          <mat-label>Upper Temp. (F)</mat-label>
+          <input matInput formControlName="upperTempCtrl" placeholder="90" required>
+        </mat-form-field>
+        <mat-form-field>
+          <mat-label>Avg. Temp. (F)</mat-label>
+          <input matInput formControlName="avgTempCtrl" placeholder="70" required>
+        </mat-form-field>
+        <mat-form-field>
+          <mat-label>Lower Temp. (F)</mat-label>
+          <input matInput formControlName="lowerTempCtrl" placeholder="55" required>
+        </mat-form-field>
       </div>
-    </form>
-</mat-step>
-  <mat-step>
-    <ng-template matStepLabel>Done</ng-template>
-    <p>You are now done.</p>
-    <div>
-      <button mat-button matStepperPrevious>Back</button>
-      <button mat-button (click)="stepper.reset()">Reset</button>
-    </div>
+      <div>
+        <mat-form-field [style.width.px]=400>
+          <mat-label>Insurance Contract Address</mat-label>
+          <input matInput formControlName="contractIdCtrl" >
+        </mat-form-field>
+      </div>
+      <div>
+        <mat-form-field [style.width.px]=400>
+          <mat-label>Premium Token Address</mat-label>
+          <input matInput formControlName="premiumTokenCtrl" >
+        </mat-form-field>
+        <mat-form-field [style.width.px]=400>
+          <mat-label>Indemnity Token Address</mat-label>
+          <input matInput formControlName="indemnityTokenCtrl" >
+        </mat-form-field >
+      </div>
+      <div>
+        <!--<button mat-button (click)="stepper.reset()">Reset</button>-->
+        <button mat-raised-button color="primary" type="submit" (click)="onSubmit()">Submit</button>
+        
+      </div>
+      </form>
   </mat-step>
 </mat-horizontal-stepper>
-

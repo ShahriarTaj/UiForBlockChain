@@ -1,20 +1,20 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { ProviderSetupComponent } from './provider-setup.component';
+import { ExchangeComponent } from './exchange.component';
 
-describe('ProviderSetupComponent', () => {
-  let component: ProviderSetupComponent;
-  let fixture: ComponentFixture<ProviderSetupComponent>;
+describe('ExchangeComponent', () => {
+  let component: ExchangeComponent;
+  let fixture: ComponentFixture<ExchangeComponent>;
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [ ProviderSetupComponent ]
+      declarations: [ ExchangeComponent ]
     })
     .compileComponents();
   });
 
   beforeEach(() => {
-    fixture = TestBed.createComponent(ProviderSetupComponent);
+    fixture = TestBed.createComponent(ExchangeComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });

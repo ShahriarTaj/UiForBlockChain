@@ -18,20 +18,20 @@ import {MatTabsModule} from '@angular/material/tabs';
 import {MatTableModule} from '@angular/material/table';
 import { AgGridModule } from 'ag-grid-angular';
 
+import {MatDatepickerModule} from '@angular/material/datepicker';
+import { MAT_DATE_LOCALE } from '@angular/material/core';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { DrSetupComponent } from './dr-setup/dr-setup.component';
-import { ProviderSetupComponent } from './provider-setup/provider-setup.component';
-import { InsuranceSetupComponent } from './insurance-setup/insurance-setup.component';
+import { ExchangeComponent } from './exchange/exchange.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     DrSetupComponent,
-    ProviderSetupComponent,
-    InsuranceSetupComponent
+    ExchangeComponent,
   ],
   imports: [
     BrowserModule,
@@ -43,12 +43,13 @@ import { InsuranceSetupComponent } from './insurance-setup/insurance-setup.compo
     MatInputModule,
     MatButtonModule,
     MatToolbarModule,
+    MatDatepickerModule,
     MatTabsModule,
     MatTableModule,
     HttpClientModule,
     AgGridModule.withComponents([])
   ],
-  providers: [],
+  providers: [{provide: MAT_DATE_LOCALE, useValue: 'en-US'}],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
